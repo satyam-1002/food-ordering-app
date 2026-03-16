@@ -1,0 +1,238 @@
+.dashboard-page {
+  padding: 40px 0;
+  min-height: calc(100vh - 70px);
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.user-welcome {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+
+.user-info h1 {
+  font-size: 28px;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.user-info p {
+  color: var(--text-secondary);
+}
+
+/* Tabs */
+.dashboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 8px;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 107, 53, 0.1);
+  color: var(--primary-color);
+}
+
+.tab-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Content */
+.dashboard-content {
+  background: white;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.dashboard-content h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Orders List */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-card {
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: 10px;
+  transition: var(--transition);
+  display: block;
+}
+
+.order-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateX(5px);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-id {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.order-header .badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: capitalize;
+}
+
+.status-icon {
+  font-size: 12px;
+}
+
+.status-icon.pending { color: #e17055; }
+.status-icon.processing { color: var(--primary-color); }
+.status-icon.delivering { color: #3498db; }
+.status-icon.delivered { color: var(--accent-color); }
+.status-icon.cancelled { color: #e74c3c; }
+
+.badge-danger {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.order-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.order-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Empty Orders */
+.empty-orders {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-orders .empty-icon {
+  font-size: 60px;
+  color: var(--border-color);
+  margin-bottom: 20px;
+}
+
+.empty-orders h3 {
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.empty-orders p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Profile */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.profile-header h2 {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-form {
+  max-width: 500px;
+}
+
+.profile-form small {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .user-welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-info h1 {
+    font-size: 22px;
+  }
+
+  .dashboard-tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  .order-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
