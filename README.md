@@ -1,261 +1,160 @@
-# FoodHub - Online Food Ordering Application
+# Online Food Ordering Website
 
-A complete full-stack food ordering web application built with React.js, Node.js, Express.js, and MySQL.
+A full-stack food ordering web application built with **React.js, Node.js, Express.js, and TiDB Cloud (MySQL-compatible database)**. Users can browse food items, manage their cart, place orders, and view their order history. Admins can manage food items and orders.
 
-## 🍔 Features
+## Live Demo
 
-### Customer Features
-- **Home Page**: Browse featured food items and categories
-- **Menu Page**: View all food items with category filtering and search
-- **Cart System**: Add to cart, update quantities, remove items
-- **Checkout**: Complete order with delivery details
-- **User Authentication**: Login and registration with JWT
-- **User Dashboard**: View order history and manage profile
-- **Order Tracking**: Track order status in real-time
+**Live Website:** https://food-ordering-app-xi-indol.vercel.app
 
-### Admin Features
-- **Admin Dashboard**: Overview of orders and statistics
-- **Food Management**: Add, edit, delete food items
-- **Order Management**: View and update order statuses
+**GitHub Repository:** https://github.com/satyam-1002/food-ordering-app
 
-## 🛠 Tech Stack
+## Features
 
-### Frontend
-- React.js 18
-- React Router v6
-- Axios
-- React Toastify
-- React Icons
-- CSS3 with custom properties
+### Customer
+- Browse food items and categories.
+- Search and filter food items.
+- User registration and login with JWT authentication.
+- Add, update, and remove items from the cart.
+- Place orders with delivery details.
+- View order history and order details.
+- Manage user profile.
 
-### Backend
-- Node.js
-- Express.js
-- MySQL2
-- JWT for authentication
-- bcryptjs for password hashing
-- CORS enabled
+### Admin
+- Admin dashboard with order statistics.
+- Add, edit, and delete food items.
+- View and manage customer orders.
+- Update order statuses.
 
-### Database
-- MySQL
+## Tech Stack
 
-## 📁 Project Structure
+| Layer | Technologies |
+|---|---|
+| Frontend | React.js 18, React Router, Axios, CSS3 |
+| Backend | Node.js, Express.js |
+| Database | TiDB Cloud (MySQL-compatible), MySQL2 |
+| Authentication | JWT, bcryptjs |
+| Tools | Git, GitHub |
 
-```
+## Project Structure
+
+```text
 food-ordering-app/
 ├── frontend/
 │   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── food/
-│   │   │   │   ├── FoodCard.js
-│   │   │   │   └── FoodCard.css
-│   │   │   ├── layout/
-│   │   │   │   ├── Navbar.js
-│   │   │   │   ├── Navbar.css
-│   │   │   │   ├── Footer.js
-│   │   │   │   └── Footer.css
-│   │   │   └── routing/
-│   │   │       ├── ProtectedRoute.js
-│   │   │       └── AdminRoute.js
-│   │   ├── context/
-│   │   │   ├── AuthContext.js
-│   │   │   └── CartContext.js
-│   │   ├── pages/
-│   │   │   ├── admin/
-│   │   │   │   ├── AdminDashboard.js
-│   │   │   │   ├── AdminFoods.js
-│   │   │   │   ├── AdminOrders.js
-│   │   │   │   └── Admin.css
-│   │   │   ├── Home.js
-│   │   │   ├── Home.css
-│   │   │   ├── Menu.js
-│   │   │   ├── Menu.css
-│   │   │   ├── Cart.js
-│   │   │   ├── Cart.css
-│   │   │   ├── Checkout.js
-│   │   │   ├── Checkout.css
-│   │   │   ├── Login.js
-│   │   │   ├── Register.js
-│   │   │   ├── Auth.css
-│   │   │   ├── Dashboard.js
-│   │   │   ├── Dashboard.css
-│   │   │   ├── OrderDetails.js
-│   │   │   └── OrderDetails.css
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   └── index.css
-│   └── package.json
+│   └── src/
+│       ├── components/
+│       ├── context/
+│       ├── pages/
+│       ├── App.js
+│       └── index.js
 ├── backend/
 │   ├── config/
-│   │   └── database.js
 │   ├── middleware/
-│   │   └── auth.js
 │   ├── models/
-│   │   ├── User.js
-│   │   ├── FoodItem.js
-│   │   ├── Cart.js
-│   │   └── Order.js
 │   ├── routes/
-│   │   ├── auth.js
-│   │   ├── food.js
-│   │   ├── cart.js
-│   │   ├── orders.js
-│   │   └── admin.js
+│   ├── certs/
 │   ├── server.js
-│   ├── package.json
-│   └── .env
+│   └── package.json
 ├── database/
 │   └── schema.sql
 └── README.md
 ```
 
-## 🚀 Installation & Setup
+## Local Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MySQL (v5.7 or higher)
-- npm or yarn
+- Node.js and npm
+- Git
+- TiDB Cloud account or a compatible MySQL database
 
-### Step 1: Clone or Download
-Download and extract the project files.
+### 1. Clone the Repository
 
-### Step 2: Database Setup
-
-1. Create a MySQL database:
-```sql
-CREATE DATABASE food_ordering_db;
-```
-
-2. Import the schema:
 ```bash
-mysql -u root -p food_ordering_db < database/schema.sql
+git clone https://github.com/satyam-1002/food-ordering-app.git
+cd food-ordering-app
 ```
 
-Or run the SQL commands from `database/schema.sql` in your MySQL client.
+### 2. Configure the Backend
 
-### Step 3: Backend Setup
-
-1. Navigate to the backend directory:
 ```bash
 cd backend
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Create `.env` file with your configuration:
+Create a `.env` file inside the `backend` directory:
+
 ```env
 PORT=5000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
+DB_HOST=your_database_host
+DB_USER=your_database_username
+DB_PASSWORD=your_database_password
 DB_NAME=food_ordering_db
-JWT_SECRET=your_super_secret_jwt_key
+JWT_SECRET=your_jwt_secret
 ```
 
-4. Start the server:
+Configure your database connection and SSL certificate according to your database provider. The deployed TiDB connection uses port `4000` and the CA certificate included in `backend/certs/`.
+
+Start the backend:
+
 ```bash
 npm start
 ```
 
-For development with auto-reload:
-```bash
-npm run dev
-```
+### 3. Configure the Frontend
 
-### Step 4: Frontend Setup
+Open another terminal:
 
-1. Open a new terminal and navigate to the frontend directory:
 ```bash
 cd frontend
-```
-
-2. Install dependencies:
-```bash
 npm install
-```
-
-3. Start the development server:
-```bash
 npm start
 ```
 
-4. Open your browser and go to: http://localhost:3000
+The frontend will run locally at:
 
-## 📝 API Endpoints
+```text
+http://localhost:3000
+```
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - User login
-- `GET /api/auth/me` - Get current user
-- `PUT /api/auth/profile` - Update profile
+## Deployment
 
-### Food Items
-- `GET /api/food` - Get all food items
-- `GET /api/food/categories` - Get categories
-- `GET /api/food/category/:category` - Get items by category
-- `GET /api/food/:id` - Get single item
-- `GET /api/food/search/query?q=` - Search items
+The application is deployed using:
 
-### Cart
-- `GET /api/cart` - Get user's cart
-- `POST /api/cart/add` - Add item to cart
-- `PUT /api/cart/update` - Update quantity
-- `DELETE /api/cart/remove/:id` - Remove item
-- `DELETE /api/cart/clear` - Clear cart
+- **Frontend – Vercel:** https://food-ordering-app-xi-indol.vercel.app
+- **Backend – Render:** https://food-ordering-app-90gx.onrender.com
+- **Database – TiDB Cloud:** MySQL-compatible cloud database
 
-### Orders
-- `POST /api/orders` - Create new order
-- `GET /api/orders/my-orders` - Get user's orders
-- `GET /api/orders/:id` - Get order details
-- `PUT /api/orders/:id/cancel` - Cancel order
+The React frontend communicates with the deployed Express backend through API requests. The backend connects to TiDB Cloud for database operations.
 
-### Admin
-- `GET /api/admin/foods` - Get all food items
-- `POST /api/admin/foods` - Create food item
-- `PUT /api/admin/foods/:id` - Update food item
-- `DELETE /api/admin/foods/:id` - Delete food item
-- `GET /api/admin/orders` - Get all orders
-- `PUT /api/admin/orders/:id/status` - Update order status
-- `GET /api/admin/orders/stats` - Get order statistics
-- `GET /api/admin/users` - Get all users
+## API Overview
 
-## 👤 Demo Credentials
+| Module | Endpoint | Method |
+|---|---|---|
+| Authentication | `/api/auth/register` | POST |
+| Authentication | `/api/auth/login` | POST |
+| Food Items | `/api/food` | GET |
+| Categories | `/api/food/categories` | GET |
+| Cart | `/api/cart` | GET |
+| Cart | `/api/cart/add` | POST |
+| Orders | `/api/orders` | POST |
+| My Orders | `/api/orders/my-orders` | GET |
+| Admin Foods | `/api/admin/foods` | GET, POST |
+| Admin Orders | `/api/admin/orders` | GET |
 
-### Admin Account
-- Email: admin@foodapp.com
-- Password: admin123
+Additional endpoints support food search, cart management, order details, profile updates, and admin operations.
 
-## 🎨 Features Highlights
+## Security
 
-### Responsive Design
-- Mobile-first approach
-- Works seamlessly on all device sizes
-
-### Security
-- Password hashing with bcrypt
-- JWT-based authentication
-- Protected API routes
-- Admin-only routes
-
-### User Experience
-- Toast notifications for feedback
-- Loading states
-- Form validation
-- Search and filter functionality
-
-## 📧 Contact
-
-For any queries or support, please reach out to the development team.
-
-## 📄 License
-
-This project is open-source and available under the MIT License.
+- Password hashing using bcryptjs.
+- JWT-based authentication.
+- Protected customer and admin routes.
+- Environment variables for sensitive configuration.
+- HTTPS-enabled production deployment.
 
 ---
 
-**Happy Ordering! 🍕🍔🍜**
+**Developer:** Satyam Singh
+
+**GitHub:** https://github.com/satyam-1002
+
+**LinkedIn:** https://www.linkedin.com/in/satyamsng/
