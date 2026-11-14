@@ -69,11 +69,6 @@ CREATE TABLE IF NOT EXISTS order_items (
     FOREIGN KEY (food_item_id) REFERENCES food_items(id) ON DELETE CASCADE
 );
 
--- Insert default admin user
--- Password: admin123 (hashed with bcrypt)
-INSERT INTO users (name, email, password, role) VALUES
-('Admin', 'admin@foodapp.com', '$2a$10$YourHashedPasswordHere', 'admin')
-ON DUPLICATE KEY UPDATE email = email;
 
 -- Insert sample food items
 INSERT INTO food_items (name, description, price, category, image_url, preparation_time) VALUES
