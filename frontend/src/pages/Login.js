@@ -96,11 +96,6 @@ const Login = () => {
             </p>
           </div>
 
-          <div className="demo-credentials">
-            <h4>Demo Credentials</h4>
-            <p>Email: admin@foodapp.com</p>
-            <p>Password: admin123</p>
-          </div>
         </div>
       </div>
     </div>
